@@ -1,213 +1,83 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>JalRakshak — RTRWH & AR Feasibility</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./index.css" />
+  <title>JalRakshak — Smart Water Conservation</title>
+  <link rel="stylesheet" href="index.css" />
 </head>
 <body>
-  <!-- Top promo strip -->
-  <div class="promo">Start your free trial today</div>
-
-  <!-- Header / Nav -->
   <header class="site-header">
-    <nav class="nav container">
+    <div class="container header-inner">
       <div class="brand">
-        <span class="logo-bars" aria-hidden="true"></span>
+        <svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8 6 6 8.5 6 12a6 6 0 0012 0c0-3.5-2-6-6-10z"/></svg>
         <span class="brand-text">JalRakshak</span>
       </div>
-
-      <ul class="nav-links">
-        <li><a href="#rainwater">Rainwater</a></li>
-        <li><a href="#eco">Eco-Friendly</a></li>
-        <li><a href="#sustainable">Sustainable</a></li>
-        <li><a href="#water">Water</a></li>
-      </ul>
-
-      <div class="nav-cta">
-        <button class="btn btn-ghost" id="loginBtn">Log in</button>
-        <button class="btn btn-primary" id="checkBtn">Check Feasibility</button>
-      </div>
-    </nav>
+      <nav class="nav">
+        <a href="#calculator">Calculator</a>
+        <a href="#impact">Impact</a>
+        <a href="#about">About</a>
+        <button id="loginBtn" class="btn-ghost">Login</button>
+      </nav>
+    </div>
   </header>
 
-  <!-- Hero -->
-  <main class="hero container">
-    <div class="hero-icon" aria-hidden="true">
-      <!-- Calculator Icon (SVG) -->
-      <svg width="128" height="128" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <rect x="3" y="2" width="18" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/>
-        <rect x="7" y="6" width="10" height="3" rx="1" fill="currentColor"/>
-        <g fill="currentColor">
-          <rect x="7" y="11" width="3" height="3" rx="0.6"/>
-          <rect x="11" y="11" width="3" height="3" rx="0.6"/>
-          <rect x="15" y="11" width="3" height="3" rx="0.6"/>
-          <rect x="7" y="15" width="3" height="3" rx="0.6"/>
-          <rect x="11" y="15" width="7" height="3" rx="0.6"/>
-        </g>
-      </svg>
-    </div>
+  <main>
+    <section class="hero">
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <div class="hero-copy">
+          <h1>Harness Every Drop,<br/><span class="accent">Save Every Rupee</span></h1>
+          <p class="lead">Calculate the feasibility of rooftop rainwater harvesting for your home. Discover water savings, cost benefits, and environmental impact.</p>
+          <div class="cta-row">
+            <a class="btn-primary" href="#calculator">Start Water Calculator</a>
+            <button class="btn-ghost" id="playDemo">Demo</button>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <img src="images/hero.jpg" alt="house" />
+        </div>
+      </div>
+    </section>
 
-    <h1 class="hero-title">
-      Calculate your<br />
-      rooftop's potential for
-    </h1>
+    <section class="info-section">
+      <div class="container">
+        <h2 class="section-title">Smart Water Conservation Made Simple</h2>
+        <p class="muted">Professional tools for urban and rural communities to maximize rainwater potential</p>
 
-    <div class="hero-actions">
-      <a href="#features" class="btn btn-secondary">Get Started</a>
-      <button class="btn btn-primary" id="checkBtn2">Check Feasibility</button>
-    </div>
+        <div class="cards">
+          <article class="card">
+            <div class="card-icon">📟</div>
+            <h3>Smart Calculator</h3>
+            <p>Enter your roof area, location, and household size to get precise water harvesting estimates.</p>
+            <a class="btn-card" href="#calculator">Calculate Now</a>
+          </article>
 
-    <p class="hero-sub">
-      Quick on-spot assessment for Rooftop Rainwater Harvesting (RTRWH) and Artificial Recharge (AR)
-      using simple inputs and smart rules of thumb.
-    </p>
+          <article class="card">
+            <div class="card-icon">📊</div>
+            <h3>Impact Analysis</h3>
+            <p>Visualize your water savings, cost benefits, and environmental contributions with detailed charts.</p>
+            <a class="btn-card" href="#impact">View Impact</a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">🌱</div>
+            <h3>Eco Education</h3>
+            <p>Learn about rainwater harvesting benefits and connect with government resources.</p>
+            <a class="btn-card" href="#about">Learn More</a>
+          </article>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <!-- Features -->
-  <section id="features" class="features container">
-    <h2>Key Features</h2>
-    <div class="grid">
-      <article class="card">
-        <h3>Feasibility Check</h3>
-        <p>Estimate your RTRWH/AR potential from roof area, location, occupants, and open space.</p>
-      </article>
-
-      <article class="card">
-        <h3>Suggested Structures</h3>
-        <p>Get recommendations for recharge pits, trenches, and shafts with indicative sizing.</p>
-      </article>
-
-      <article class="card">
-        <h3>Local Context</h3>
-        <p>See rainfall, principal aquifer info, depth-to-water (placeholder values), and runoff capacity.</p>
-      </article>
-
-      <article class="card">
-        <h3>Costs & Benefits</h3>
-        <p>Approximate cost estimates with a simple payback snapshot and water saved per year.</p>
-      </article>
-
-      <article class="card">
-        <h3>Regional Languages</h3>
-        <p>Switch content to Hindi (hi) for better accessibility. More languages can be added.</p>
-      </article>
-
-      <article class="card">
-        <h3>Privacy First</h3>
-        <p>No personal data leaves your browser in this demo. Hook your backend when ready.</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- Background / Impact -->
-  <section id="background" class="bg-section container">
-    <div class="bg-grid">
-      <div>
-        <h2>Background</h2>
-        <p>
-          Groundwater replenishment is critical for sustainable water resources. Rooftop rainwater
-          harvesting (RTRWH) can augment supplies in both rural and urban areas. While CGWB provides
-          technical manuals, people still lack a simple digital tool to assess their own potential.
-        </p>
-      </div>
-      <div>
-        <h2>Impact</h2>
-        <p>
-          Empower households and communities to take informed action. This tool boosts awareness,
-          supports adoption of RTRWH & AR, and helps plan investments with indicative costs and benefits.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
   <footer class="site-footer">
-    <div class="container footer-grid">
-      <div class="brand">
-        <span class="logo-bars" aria-hidden="true"></span>
-        <span class="brand-text">JalRakshak</span>
-      </div>
-      <div class="foot-links">
-        <a href="#background">Background</a>
-        <a href="#features">Features</a>
-        <a href="#" id="openLang">हिन्दी / English</a>
-      </div>
-      <p class="copy">© <span id="year"></span> JalRakshak. For demo use only.</p>
+    <div class="container footer-inner">
+      <small>© 2025 JalRakshak — Built with 💧</small>
+      <div class="social">Made in India</div>
     </div>
   </footer>
 
-  <!-- Feasibility Modal -->
-  <dialog id="feasibilityModal" class="modal">
-    <form id="feasibilityForm" method="dialog" class="modal-card" novalidate>
-      <header class="modal-head">
-        <h3>RTRWH & AR — Quick Assessment</h3>
-        <button type="button" class="icon-btn" id="closeModal" aria-label="Close">✕</button>
-      </header>
-
-      <div class="form-grid">
-        <label class="field">
-          <span>Full Name</span>
-          <input type="text" name="name" placeholder="Your name" required />
-        </label>
-
-        <label class="field">
-          <span>Location / City</span>
-          <input type="text" name="location" placeholder="e.g., Delhi, Mumbai…" required />
-          <small>Demo uses city-level rainfall presets.</small>
-        </label>
-
-        <label class="field">
-          <span>Number of Dwellers</span>
-          <input type="number" name="dwellers" min="1" value="4" required />
-        </label>
-
-        <label class="field">
-          <span>Roof Area (m²)</span>
-          <input type="number" name="roofArea" min="10" step="0.1" placeholder="e.g., 120" required />
-        </label>
-
-        <label class="field">
-          <span>Open Space Available (m²)</span>
-          <input type="number" name="openSpace" min="0" step="0.1" placeholder="e.g., 30" required />
-        </label>
-
-        <label class="field">
-          <span>Roof Type</span>
-          <select name="roofType" required>
-            <option value="concrete">Reinforced Concrete</option>
-            <option value="tile">Tiled/Sheeted</option>
-            <option value="metal">Metal Sheet</option>
-            <option value="green">Green Roof</option>
-          </select>
-        </label>
-
-        <label class="field">
-          <span>Collection Efficiency (%)</span>
-          <input type="number" name="efficiency" min="50" max="100" value="85" />
-          <small>Accounts for losses (first flush, filter, leaks).</small>
-        </label>
-
-        <label class="field">
-          <span>Design Storm (mm) for Sizing</span>
-          <input type="number" name="designStorm" min="10" max="150" value="50" />
-          <small>Single-event sizing; annual figures shown separately.</small>
-        </label>
-      </div>
-
-      <div class="modal-actions">
-        <button type="button" class="btn btn-ghost" id="resetForm">Reset</button>
-        <button class="btn btn-primary" id="computeBtn">Compute</button>
-      </div>
-
-      <output id="results" class="results" aria-live="polite"></output>
-    </form>
-  </dialog>
-
-  <script src="./index.js"></script>
+  <script src="index.js"></script>
 </body>
 </html>
