@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Rainwater Harvesting Calculator — Manual / Auto + Rain Background</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="calculator.css">
+
+  <!-- p5.js (required for the rain sketch) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+</head>
+<body>
+  <!-- p5 will create a full-screen canvas automatically (behind UI) -->
+
+  <!-- Top navigation -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <svg class="brand-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+          <path fill="currentColor" d="M12 2C12 2 8 6 8 10a4 4 0 0 0 8 0c0-4-4-8-4-8zM6 18c0 3 4 4 6 4s6-1 6-4c0-4.5-6-7-6-7s-6 2.5-6 7z"/>
+        </svg>
+        <span class="brand-text">JalRakshak</span>
+      </div>
+
+      <nav class="top-actions">
+        <a class="back" href="#">← Back to Home</a>
+        <button class="login">Login</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page main -->
+  <main class="page">
+    <!-- This wrapper centers the hero vertically and horizontally.
+         It still allows page scrolling for additional content below. -->
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="icon-round" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="34" height="34"><path fill="currentColor" d="M12 2C10 5 7 6 7 9a5 5 0 0 0 10 0c0-3-3-4-5-7z"/></svg>
+        </div>
+
+        <h1 class="title">Rainwater Harvesting Calculator</h1>
+        <p class="subtitle">Choose Manual or Automatic (use browser location). Monthly breakdown & cost estimate included.</p>
+
+        <form id="harvestForm" class="card card-form" autocomplete="off" novalidate>
+          <div class="row">
+            <label class="method">
+              <input type="radio" name="method" value="manual" checked> Manual
+            </label>
+            <label class="method">
+              <input type="radio" name="method" value="auto"> Auto (Use my location)
+            </label>
+            <button type="button" id="useLocationBtn" class="small-btn" title="Use browser geolocation">Use my location</button>
+          </div>
+
+          <div class="field">
+            <label>Roof Area</label>
+            <div class="inline">
+              <input type="number" id="roofArea" placeholder="e.g., 1200" min="0" />
+              <select id="areaUnit" title="sq ft or sq m">
+                <option value="sqft">sq ft</option>
+                <option value="sqm">sq m</option>
+              </select>
+            </div>
+            <small>Measure total roof area available for collection</small>
+          </div>
+
+          <div class="field">
+            <label>Location (City / State) — optional for Manual</label>
+            <select id="location">
+              <option value="">Select your location (or auto detect)</option>
+              <option>Delhi, India</option>
+              <option>Mumbai, India</option>
+              <option>Kolkata, India</option>
+              <option>Chennai, India</option>
+              <option>Bengaluru, India</option>
+              <option>Hyderabad, India</option>
+              <option>Pune, India</option>
+              <option>Ahmedabad, India</option>
+              <option>Jaipur, India</option>
+            </select>
+            <small>Used to select average annual rainfall if available</small>
+          </div>
+
+          <div class="field">
+            <label>Number of Household Members</label>
+            <input type="number" id="members" placeholder="e.g., 4" min="1" />
+            <small>Total number of people living in the household</small>
+          </div>
+
+          <div class="field">
+            <label>Available Open Space (sq ft)</label>
+            <input type="number" id="openSpace" placeholder="e.g., 500" min="0" />
+            <small>Space for tanks / recharge. Enter 0 if none.</small>
+          </div>
+
+          <div class="field">
+            <label>Assumptions</label>
+            <div class="assumptions">
+              <label>Collection efficiency: <input type="range" id="efficiency" min="50" max="95" value="85"> <span id="effVal">85%</span></label>
+              <label>Price of water: <input type="number" id="pricePerLiter" value="0.02" step="0.01"> INR per liter</label>
+            </div>
+          </div>
+
+          <div class="cta-row">
+            <button id="calculateBtn" class="cta">Calculate Water Harvesting Potential →</button>
+            <button type="button" id="clearBtn" class="ghost">Clear</button>
+            <button type="button" id="downloadBtn" class="ghost">Download Result</button>
+          </div>
+        </form>
+
+        <div class="info-row">
+          <div class="info-card">
+            <h4>Why These Details Matter</h4>
+            <ul>
+              <li>Roof area determines how much rain can be captured</li>
+              <li>Location influences rainfall intensity and seasonality</li>
+              <li>Household size shows potential domestic demand</li>
+              <li>Open space determines storage/recharge choices</li>
+            </ul>
+          </div>
+
+          <div class="info-card">
+            <h4>What You'll Get</h4>
+            <ul>
+              <li>Annual harvest estimate (L and m³)</li>
+              <li>Monthly breakdown (approx.)</li>
+              <li>Person-days covered and cost savings</li>
+              <li>Storage suggestion based on available space</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Extra spacer/content below to allow scrolling demo -->
+    <section class="below-content">
+      <div class="below-inner">
+        <h2>More details & resources</h2>
+        <p>Scroll down to see the subtle hero motion and background parallax. Replace this area with your real content.</p>
+        <p style="height:520px"></p>
+      </div>
+    </section>
+  </main>
+
+  <div id="resultToast" class="result-toast" aria-hidden="true">
+    <div class="result-inner">
+      <button id="closeResult" class="close-x" title="close">✕</button>
+      <h3>Result Summary</h3>
+      <div id="resultContent">—</div>
+    </div>
+  </div>
+
+  <!-- Combined behavior script (calculator + p5 rain sketch + scroll reaction) -->
+  <script src="calculator.js"></script>
+</body>
+</html>
