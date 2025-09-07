@@ -1,421 +1,424 @@
-html {
-  height: 100%;
-}
-html {
-  height: 100%;
+html{
+	height: 100%;
 }
 
-body {
-  height: 100%;
-  margin: 0px;
-  display: flex;
-  flex-direction: column; /* so navbar stays at top */
-  background-color: black;
-  overflow: hidden;
+body{
+	height: 100%;
+	margin: 0px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: black;
+	overflow: hidden
 }
 
-/* Navbar styling */
+.container{
+	width: 100%;
+	height: 100%;
+  min-width: 600px;
+	max-width: 800px;
+	max-height: 500px;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(3, 1fr);
+}
+
+.row{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.rain{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.rain:nth-of-type(1){
+	--duration: 2.7s;
+	--delay: 1s;
+	transform: translate(10%, 10%) scale(0.9);
+}
+
+.rain:nth-of-type(2){
+	--duration: 2.1s;
+	--delay: 1.2s;
+	transform: translate(-20%, 40%) scale(1.3);
+}
+
+.rain:nth-of-type(3){
+	--duration: 2.3s;
+	--delay: 2s;
+	transform: translate(0%, 50%) scale(1.1);
+}
+
+.rain:nth-of-type(4){
+	--duration: 2s;
+	--delay: 4s;
+	transform: translate(0%, -10%) scale(1.2);
+}
+
+.rain:nth-of-type(5){
+	--duration: 2.5s;
+	--delay: 0s;
+	transform: translate(10%, 0%) scale(0.9);
+}
+
+.rain:nth-of-type(6){
+	--duration: 2s;
+	--delay: 2.7s;
+	transform: translate(-20%, 0%) scale(1);
+}
+
+.rain:nth-of-type(7){
+	--duration: 1.8s;
+	--delay: 1.3s;
+	transform: translate(20%, -40%) scale(1.2);
+}
+
+.rain:nth-of-type(8){
+	--duration: 2.2s;
+	--delay: 0s;
+	transform: translate(20%, 0%) scale(1);
+}
+
+.rain:nth-of-type(9){
+	--duration: 2s;
+	--delay: 0.5s;
+	transform: translate(0%, -10%) scale(1.3);
+}
+
+.drop{
+	background-color: white;
+	width: 3px;
+	height: 100px;
+	position: absolute;
+	top: calc(50% - 100px); 
+	left: calc(50% - 1.5px);
+	animation-name: fall;
+	animation-duration: var(--duration);
+	animation-delay: var(--delay);
+	animation-iteration-count: infinite;
+	animation-timing-function: ease-in;
+	animation-fill-mode: backwards;
+}
+
+@keyframes fall{
+	0%{
+		transform: translateY(-120vh);
+	}
+	45%{
+		transform: translateY(0%);
+		opacity: 1;
+	}
+	46%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 0;
+	}
+}
+
+.waves > div{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	border-radius: 50%;
+	border: solid white 3px;
+	animation-name: spread;
+	animation-duration: var(--duration);
+	animation-delay: var(--delay);
+	animation-iteration-count: infinite;
+	animation-timing-function: ease-out;
+	animation-fill-mode: backwards;
+}
+
+.waves > div:nth-child(2){
+	animation-delay: calc(var(--delay) + 0.3s);
+	animation-timing-function: linear;
+}
+
+@keyframes spread{
+	0%{
+		transform: scale(0);
+		opacity: 1;
+	}
+	40%{
+		transform: scale(0);
+		opacity: 1;
+	}
+
+	100%{
+		transform: scale(1);
+		opacity: 0;
+	}
+}
+
+
+.splash{
+	position: absolute;
+	top: 10%;
+	bottom: 50%;
+	left: 35%;
+	right: 35%;
+	border-radius: 8px;
+	clip-path: polygon(7% 100%, 5% 95%, 3% 80%, 11% 50%, 17% 38%, 23% 44%, 30% 53%, 37% 28%, 40% 29%, 45% 43%, 51% 53%, 59% 36%, 64% 22%, 67% 23%, 70% 34%, 72% 46%, 79% 37%, 83% 37%, 93% 61%, 96% 76%, 96% 94%, 94% 100%);
+	background-color: white;
+	transform-origin: bottom;
+	animation-name: splash;
+	animation-duration: var(--duration);
+	animation-delay: var(--delay);
+	animation-iteration-count: infinite;
+	animation-timing-function: ease-out;
+	animation-fill-mode: backwards;
+}
+
+@keyframes splash{
+	0%{
+		transform: scale(0.3, 0);
+	}
+
+	49%{
+		transform: scale(0.3, 0);
+	}
+
+	50%{
+		transform: scale(0.3, 0.3);
+	}
+
+	60%{
+		transform: scale(0.7, 1);
+	}
+
+	90%{
+		transform: scale(1, 0);
+	}
+
+	100%{
+		transform: scale(1, 0);
+	}
+}
+
+.particles > div{
+	position: absolute;	
+	border-radius: 100%;
+	background-color: white;
+	animation-duration: var(--duration);
+	animation-delay: var(--delay);
+	animation-iteration-count: infinite;
+	animation-timing-function: ease;
+	animation-fill-mode: backwards;
+}
+
+.particles > div:nth-child(1){
+	width: 7px;
+	height: 7px;
+	top: 50%;
+	left: 50%;
+	animation-name: jumpLeft;
+}
+
+.particles > div:nth-child(2){
+	width: 5px;
+	height: 5px;
+	top: 30%;
+	left: 50%;
+	animation-name: jumpLeft;
+	animation-delay: calc(var(--delay) + 0.1s);
+}
+
+.particles > div:nth-child(3){
+	width: 3px;
+	height: 3px;
+	top: 20%;
+	left: 70%;
+	animation-name: jumpRight;
+	animation-delay: calc(var(--delay) + 0.15s);
+}
+
+.particles > div:nth-child(4){
+	width: 5px;
+	height: 5px;
+	top: 30%;
+	left: 50%;
+	animation-name: jumpRight;
+	animation-delay: calc(var(--delay) + 0.3s);
+}
+
+@keyframes jumpLeft{
+	0%{
+		transform: translate(0,0) scale(0);
+	}
+
+	45%{
+		transform: translate(0,0) scale(0);
+	}
+
+	60%{
+		transform: translate(-50px, -90px) scale(1);
+	}
+
+	100%{
+		transform: translate(-60px, 0px) scale(0.1);
+	}
+}
+
+@keyframes jumpRight{
+	0%{
+		transform: translate(0,0) scale(0);
+	}
+
+	45%{
+		transform: translate(0,0) scale(0);
+	}
+
+	60%{
+		transform: translate(30px, -80px) scale(1);
+	}
+
+	100%{
+		transform: translate(50px, 0px) scale(0.1);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+/* Navbar styles */
 .navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: #00d26a; /* green navbar */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-  height: 60px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #28a745; /* Green color */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    color: white;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    z-index: 1000;
 }
 
 .navbar-title {
-  font-size: 24px;
-  font-weight: bold;
-  color: #16eb0b;
-  letter-spacing: 2px;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
-.navbar-links a {
-  margin-left: 20px;
-  text-decoration: none;
-  color: #3cff00;
-  font-size: 16px;
-  font-weight: 500;
-  transition: color 0.2s;
+.navbar-actions .btn {
+    background-color: white;
+    color: #28a745;
+    border: none;
+    padding: 8px 16px;
+    margin-left: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
 }
 
-.navbar-links a:hover {
-  color: #00ff26;
+.navbar-actions .btn:hover {
+    background-color: #218838;
+    color: white;
 }
 
-/* Container adjustments for fixed navbar */
+/* Push the rain container below the navbar */
 .container {
-  margin-top: 60px; /* leave space for navbar */
-  width: 100%;
-  height: calc(100% - 60px);
-  min-width: 600px;
-  max-width: 800px;
-  max-height: 500px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+    padding-top: 60px; /* Height of navbar */
 }
 
-/* Rest of your CSS (rain animation, features, boxes) unchanged */
 
+
+
+
+
+
+
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
 
 body {
-  height: 100%;
-  margin: 0px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: black;
-  overflow: hidden;
+    background-color: #000000;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    /* background-color: #2e7d32; */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 2rem;
 }
 
 .container {
-  width: 100%;
-  height: 100%;
-  min-width: 600px;
-  max-width: 800px;
-  max-height: 500px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px;
 }
 
-.row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.feature-box {
+    background: rgb(191, 186, 186);
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
 }
 
-/* Rain animation */
-.rain {
-  position: relative;
-  width: 100%;
-  height: 100%;
+.feature-box:hover {
+    transform: translateY(-5px);
 }
 
-.rain:nth-of-type(1) {
-  --duration: 2.7s;
-  --delay: 1s;
-  transform: translate(10%, 10%) scale(0.9);
-}
-.rain:nth-of-type(2) {
-  --duration: 2.1s;
-  --delay: 1.2s;
-  transform: translate(-20%, 40%) scale(1.3);
-}
-.rain:nth-of-type(3) {
-  --duration: 2.3s;
-  --delay: 2s;
-  transform: translate(0%, 50%) scale(1.1);
-}
-.rain:nth-of-type(4) {
-  --duration: 2s;
-  --delay: 4s;
-  transform: translate(0%, -10%) scale(1.2);
-}
-.rain:nth-of-type(5) {
-  --duration: 2.5s;
-  --delay: 0s;
-  transform: translate(10%, 0%) scale(0.9);
-}
-.rain:nth-of-type(6) {
-  --duration: 2s;
-  --delay: 2.7s;
-  transform: translate(-20%, 0%) scale(1);
-}
-.rain:nth-of-type(7) {
-  --duration: 1.8s;
-  --delay: 1.3s;
-  transform: translate(20%, -40%) scale(1.2);
-}
-.rain:nth-of-type(8) {
-  --duration: 2.2s;
-  --delay: 0s;
-  transform: translate(20%, 0%) scale(1);
-}
-.rain:nth-of-type(9) {
-  --duration: 2s;
-  --delay: 0.5s;
-  transform: translate(0%, -10%) scale(1.3);
-}
-.drop {
-  background-color: white;
-  width: 3px;
-  height: 100px;
-  position: absolute;
-  top: calc(50% - 100px); 
-  left: calc(50% - 1.5px);
-  animation-name: fall;
-  animation-duration: var(--duration);
-  animation-delay: var(--delay);
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in;
-  animation-fill-mode: backwards;
-}
-@keyframes fall {
-  0% {
-    transform: translateY(-120vh);
-  }
-  45% {
-    transform: translateY(0%);
-    opacity: 1;
-  }
-  46% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-.waves > div {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-  border-radius: 50%;
-  border: solid white 3px;
-  animation-name: spread;
-  animation-duration: var(--duration);
-  animation-delay: var(--delay);
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-out;
-  animation-fill-mode: backwards;
-}
-.waves > div:nth-child(2) {
-  animation-delay: calc(var(--delay) + 0.3s);
-  animation-timing-function: linear;
-}
-@keyframes spread {
-  0% {
-    transform: scale(0);
-    opacity: 1;
-  }
-  40% {
-    transform: scale(0);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 0;
-  }
-}
-.splash {
-  position: absolute;
-  top: 10%;
-  bottom: 50%;
-  left: 35%;
-  right: 35%;
-  border-radius: 8px;
-  clip-path: polygon(7% 100%, 5% 95%, 3% 80%, 11% 50%, 17% 38%, 23% 44%, 30% 53%, 37% 28%, 40% 29%, 45% 43%, 51% 53%, 59% 36%, 64% 22%, 67% 23%, 70% 34%, 72% 46%, 79% 37%, 83% 37%, 93% 61%, 96% 76%, 96% 94%, 94% 100%);
-  background-color: white;
-  transform-origin: bottom;
-  animation-name: splash;
-  animation-duration: var(--duration);
-  animation-delay: var(--delay);
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-out;
-  animation-fill-mode: backwards;
-}
-@keyframes splash {
-  0% {
-    transform: scale(0.3, 0);
-  }
-  49% {
-    transform: scale(0.3, 0);
-  }
-  50% {
-    transform: scale(0.3, 0.3);
-  }
-  60% {
-    transform: scale(0.7, 1);
-  }
-  90% {
-    transform: scale(1, 0);
-  }
-  100% {
-    transform: scale(1, 0);
-  }
-}
-.particles > div {
-  position: absolute; 
-  border-radius: 100%;
-  background-color: white;
-  animation-duration: var(--duration);
-  animation-delay: var(--delay);
-  animation-iteration-count: infinite;
-  animation-timing-function: ease;
-  animation-fill-mode: backwards;
-}
-.particles > div:nth-child(1) {
-  width: 7px;
-  height: 7px;
-  top: 50%;
-  left: 50%;
-  animation-name: jumpLeft;
-}
-.particles > div:nth-child(2) {
-  width: 5px;
-  height: 5px;
-  top: 30%;
-  left: 50%;
-  animation-name: jumpLeft;
-  animation-delay: calc(var(--delay) + 0.1s);
-}
-.particles > div:nth-child(3) {
-  width: 3px;
-  height: 3px;
-  top: 20%;
-  left: 70%;
-  animation-name: jumpRight;
-  animation-delay: calc(var(--delay) + 0.15s);
-}
-.particles > div:nth-child(4) {
-  width: 5px;
-  height: 5px;
-  top: 30%;
-  left: 50%;
-  animation-name: jumpRight;
-  animation-delay: calc(var(--delay) + 0.3s);
-}
-@keyframes jumpLeft {
-  0% {
-    transform: translate(0,0) scale(0);
-  }
-  45% {
-    transform: translate(0,0) scale(0);
-  }
-  60% {
-    transform: translate(-50px, -90px) scale(1);
-  }
-  100% {
-    transform: translate(-60px, 0px) scale(0.1);
-  }
-}
-@keyframes jumpRight {
-  0% {
-    transform: translate(0,0) scale(0);
-  }
-  45% {
-    transform: translate(0,0) scale(0);
-  }
-  60% {
-    transform: translate(30px, -80px) scale(1);
-  }
-  100% {
-    transform: translate(50px, 0px) scale(0.1);
-  }
+.feature-box h2 {
+    color: #2e7d32;
+    margin-bottom: 15px;
 }
 
-/* Features section styling */
-.features {
-  text-align: center;
-  padding: 40px 20px;
-  color: #fff;
+.feature-box p, .feature-box ul {
+    font-size: 1rem;
+    line-height: 1.5;
 }
 
-.features h2 {
-  font-size: 1.8rem;
-  margin-bottom: 10px;
+.green-button {
+    background-color: #2e7d32;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 15px;
+    transition: background-color 0.3s;
 }
 
-.features p {
-  margin-bottom: 30px;
-  color: #bbb;
+.green-button:hover {
+    background-color: #27632a;
 }
 
-.feature-boxes {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-/* Glassmorphism card/box styling */
-.box {
-  background: rgba(30, 30, 31, 0.55);         /* Semi-transparent for glass effect */
-  border-radius: 18px;
-  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.25); /* Soft shadow */
-  border: 1.5px solid rgba(255,255,255,0.18); /* Subtle border */
-  backdrop-filter: blur(10px);                /* Glass blur */
-  -webkit-backdrop-filter: blur(10px);        /* For Safari */
-  padding: 25px;
-  width: 280px;
-  text-align: center;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.box:hover {
-  transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 16px 40px 0 rgba(0,0,0,0.30);
-}
-
-/* icons and headings for box */
-.box .icon {
-  font-size: 2rem;
-  margin-bottom: 15px;
-  color: #00d26a;
-}
-.box h3 {
-  margin-bottom: 10px;
-}
-.box p {
-  font-size: 0.9rem;
-  margin-bottom: 20px;
-  color: #aaa;
-}
-/* Button styling for modern UI */
-.box button {
-  background: #00d26a;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 8px;
-  cursor: pointer;
-  color: #000;
-  font-weight: bold;
-  transition: 
-    filter 0.2s, 
-    box-shadow 0.2s, 
-    background 0.2s;
-}
-.box button:hover {
-  filter: brightness(1.12);
-  background: linear-gradient(90deg, #37FF8B, #00D26A);
-  box-shadow: 0 4px 18px 0 rgba(0, 210, 106, 0.23);
-}
-.navbar {
-  border-top: 4px solid green;
-  background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
-  height: 60px;
-  box-sizing: border-box;
-}
-
-.navbar-title {
-  font-size: 24px;
-  font-weight: bold;
-  letter-spacing: 2px;
-  color: #222;
-}
-
-.navbar-links a {
-  margin-left: 20px;
-  text-decoration: none;
-  color: #1a7e1f;
-  font-size: 16px;
-  font-weight: 500;
-  transition: color 0.2s;
-}
-
-.navbar-links a:hover {
-  color: #005700;
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #e0f2f1;
+    margin-top: auto;
 }
