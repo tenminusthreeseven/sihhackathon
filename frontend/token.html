@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Token Exchange - Rainwater Harvesting</title>
+    <link rel="stylesheet" href="token.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-title">Jal Rakshak</div>
+        <div class="navbar-actions">
+            <button class="btn">Sign Up</button>
+            <button class="btn">Login</button>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Token Exchange</h1>
+        <p>Earn tokens by restoring rainwater and use them for rewards later.</p>
+    </header>
+
+    <main>
+        <div class="info-box">
+            <h2>How It Works</h2>
+            <p>Every time you collect and restore 100 liters of rainwater, you earn <strong>1 token</strong>.</p>
+            <p>You can accumulate tokens and later redeem them for useful rewards or services.</p>
+            <p>To get tokens, you must upload a photo as proof of your rainwater restoration efforts.</p>
+        </div>
+
+        <div class="token-box">
+            <h2>Exchange Your Rainwater for Tokens</h2>
+            <form class="token-form" action="#" method="POST" enctype="multipart/form-data">
+                <label for="liters">Enter Rainwater Restored (in Liters):</label>
+                <input type="number" id="liters" name="liters" required min="100" step="1">
+
+                <label for="proof">Upload Photo Proof:</label>
+                <input type="file" id="proof" name="proof" accept="image/*" required>
+
+                <button type="submit" class="green-button">Submit for Tokens</button>
+            </form>
+        </div>
+
+        <div class="note-box">
+            <h2>Important Notes</h2>
+            <ul>
+                <li>Minimum 100 liters required to exchange for 1 token.</li>
+                <li>Ensure the photo clearly shows your rainwater harvesting setup.</li>
+                <li>Tokens will be credited after verification.</li>
+                <li>You can use tokens later for special discounts and services.</li>
+            </ul>
+        </div>
+    </main>
+
+    
+</body>
+
+</html>
