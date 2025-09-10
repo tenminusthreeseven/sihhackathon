@@ -9,14 +9,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="dark-theme">
+
     <nav class="navbar">
         <div class="navbar-title">🌧️ Jal Rakshak</div>
         <div class="navbar-actions">
-            <button class="btn">Sign Up</button>
-            <button class="btn">Login</button>
+            <button class="btn" onclick="location.href='signup.html'">Sign Up</button>
+            <button class="btn" onclick="location.href='login.html'">Login</button>
             <button class="btn" onclick="location.href='calculator.html'">Calculator</button>
             <button class="btn" onclick="location.href='token.html'">Token Exchange</button>
+            <button class="btn theme-toggle" onclick="toggleTheme()">🌞</button>
         </div>
     </nav>
 
@@ -28,6 +30,15 @@
     <div class="rain-animation">
         <canvas id="rainCanvas"></canvas>
     </div>
+
+    <section class="project-name">
+        <h1>🌧️ JAL RAKSHAK</h1>
+    </section>
+
+    <section class="project-info">
+        <p>Jal Rakshak is your one-stop solution to track, manage, and improve rainwater harvesting practices.  
+           Empowering individuals and communities to conserve water and contribute towards a sustainable future.</p>
+    </section>
 
     <main class="feature-container">
         <div class="feature-box">
@@ -61,15 +72,59 @@
         </div>
     </main>
 
-    <!-- New Tip of the Day Section -->
     <section class="tip-section">
         <h2>💧 Water Conservation Tip of the Day</h2>
         <p><em>“Fix leaking taps immediately – even a small leak wastes gallons of water!”</em></p>
         <img src="3ce38ce9-eb77-4601-853b-e2a85fcd5dcf.png" alt="Water Conservation" class="tip-image">
     </section>
 
+    <section class="statistics">
+        <h2>📊 Impact So Far</h2>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>1500+</h3>
+                <p>Liters Saved</p>
+            </div>
+            <div class="stat-item">
+                <h3>300+</h3>
+                <p>Active Users</p>
+            </div>
+            <div class="stat-item">
+                <h3>50+</h3>
+                <p>Eco-Tokens Redeemed</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <h2>🌟 User Testimonials</h2>
+        <p>"Thanks to Jal Rakshak, I now collect rainwater efficiently and reduce my water bills!" – Priya S.</p>
+        <p>"Great platform for eco-conscious people." – Rahul K.</p>
+    </section>
+
+    <section class="how-it-works">
+        <h2>🔧 How It Works</h2>
+        <div class="how-it-works-grid">
+            <div class="how-box step1">
+                <h3>1. Collect Rainwater</h3>
+                <p>Rainwater is collected from your rooftop into storage systems.</p>
+            </div>
+            <div class="how-box step2">
+                <h3>2. Calculate Savings</h3>
+                <p>Use the smart calculator to estimate your rainwater potential and savings.</p>
+            </div>
+            <div class="how-box step3">
+                <h3>3. Exchange Tokens</h3>
+                <p>Earn eco-tokens for your conservation efforts and redeem them for rewards.</p>
+            </div>
+        </div>
+    </section>
+
     <footer class="footer">
-        <p>&copy; 2025 Jal Rakshak. All rights reserved.</p>
+        <h2>🌧️ JAL RAKSHAK</h2>
+        <p>Empowering sustainable practices.<br>
+           Together, let's build a greener tomorrow.<br>
+           All rights reserved © 2025.</p>
     </footer>
 
     <script src="index.js"></script>
