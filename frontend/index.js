@@ -1,16 +1,21 @@
-const container = document.getElementById('container');
-const rainCount = 50;  // Adjust as needed
+document.getElementById('tokenButton').addEventListener('click', function(event) {
+    console.log('Token Exchange form button clicked.');
+});
+
+document.getElementById('calculatorButton').addEventListener('click', function(event) {
+    console.log('Navigating to calculator.html');
+});
+
+const container = document.getElementById('rainContainer');
+const rainCount = 50;
 
 for (let i = 0; i < rainCount; i++) {
     const rain = document.createElement('div');
     rain.className = 'rain';
 
-    // Random horizontal position (0 to 100%)
     const xPos = Math.random() * 100;
-
-    // Random animation duration and delay
-    const duration = (Math.random() * 2 + 1) + 's';  // Between 1s and 3s
-    const delay = Math.random() * 5 + 's';          // Between 0s and 5s
+    const duration = (Math.random() * 2 + 1) + 's';
+    const delay = Math.random() * 5 + 's';
 
     rain.style.setProperty('--x-position', `${xPos}vw`);
     rain.style.setProperty('--duration', duration);

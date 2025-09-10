@@ -5,11 +5,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Rain Animation</title>
-   <link rel="stylesheet" href="index.css">
-
+    <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
+    <nav class="navbar">
+        <div class="navbar-title">Jal Rakshak</div>
+        <div class="navbar-actions">
+            <button class="btn">Sign Up</button>
+            <button class="btn">Login</button>
+             <button class="btn" onclick="location.href='calculator.html'">Calculator</button>
+            <button class="btn" onclick="location.href='token.html'">Token Exchange</button>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Jal Rakshak</h1>
+    </header>
+
     <div class="container">
         <!-- Repeat the rain block multiple times for multiple drops -->
         <div class="rain">
@@ -148,32 +161,8 @@
         </div>
     </div>
 
-
-
-
-       <nav class="navbar">
-        <div class="navbar-title">Jal Rakshak</div>
-        <div class="navbar-actions">
-            <button class="btn">Sign Up</button>
-            <button class="btn">Login</button>
-        </div>
-    </nav>
-
-
-
-
-
-
-
-
-
-      <header>
-        <h1>Rainwater Harvesting</h1>
-    </header>
-
-    <main>
-        <div class="container">
-
+     <main>
+        <div class="feature-container">
             <div class="feature-box">
                 <h2>What is Rainwater Harvesting?</h2>
                 <p>Rainwater harvesting is the collection and storage of rainwater for reuse before it reaches the ground. It helps in conserving water and preventing urban flooding.</p>
@@ -191,29 +180,22 @@
             <div class="feature-box">
                 <h2>Smart Calculator</h2>
                 <p>Estimate how much rainwater you can collect based on your rooftop area and rainfall.</p>
-              <a href="calculator.html">
-    <button class="green-button">Open Calculator</button>
-</a>
-
+                <a href="calculator.html" id="calculatorButton" class="green-button">Open Calculator</a>
             </div>
 
+            <div class="feature-box">
+                <h2>Token Exchange</h2>
+                <p>Exchange your rainwater conservation efforts for eco-tokens that can be redeemed for rewards.</p>
+                <form class="token-form" action="token.html" method="get">
+                    <label for="tokenAmount">Enter Amount of Rainwater Saved (liters):</label>
+                    <input type="number" id="tokenAmount" name="tokenAmount" placeholder="e.g., 5000" required />
+                    <button type="submit" id="tokenButton" class="green-button">Go to Token Exchange</button>
+                </form>
+            </div>
         </div>
-
-
-         <div class="feature-box">
-    <h2>Token Exchange</h2>
-    <p>Exchange your rainwater conservation efforts for eco-tokens that can be redeemed for rewards.</p>
-    <form class="token-form" action="token.html" method="get">
-        <label for="tokenAmount">Enter Amount of Rainwater Saved (liters):</label>
-        <input type="number" id="tokenAmount" name="tokenAmount" placeholder="e.g., 5000" required />
-
-        <button type="submit" class="green-button">Go to Token Exchange</button>
-    </form>
-</div>
-
     </main>
 
-    
+    <script src="index.js"></script>
 </body>
 
 </html>
